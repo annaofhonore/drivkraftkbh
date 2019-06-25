@@ -9,7 +9,7 @@ function scrollFunction() {
     if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
         document.querySelector("#navbar").style.padding = "3px 10px";
         document.querySelector("#logo img").style.width = "75%";
-        document.querySelector("#navbar").style.backgroundColor = "rgba(0, 0, 0, 0.58)";
+        document.querySelector("#navbar").style.backgroundColor = "rgba(255, 255, 255, 0.21)";
         document.querySelector("#mobile-button").style.top = "1vw";
         document.querySelector("#mobile-nav").style.top = "3.4rem";
     } else {
