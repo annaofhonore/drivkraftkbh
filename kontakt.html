@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Kontakt</title>
+
+
+    <link rel="stylesheet" href="stylesheet.css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+    <link href="//db.onlinewebfonts.com/c/6c8668bcbf5ffda0931f0fedcf2977a9?family=Kohinoor" rel="stylesheet" type="text/css">
+
+
+
+    <style>
+        .splash-kontakt {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .splash-kontakt img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .splash-kontakt .kontakt-content {
+            position: absolute;
+            z-index: 1;
+            /*            max-width: 250px;*/
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+
+
+
+        }
+
+        .kontakt-content {
+            background-color: rgba(0, 0, 0, 0.58);
+            width: 100%;
+
+        }
+
+        .kontakt-content h1 {
+            font-family: 'Viga', sans-serif;
+            font-size: 2rem;
+            text-align: center
+        }
+
+        .kontakt-content p {
+            font-family: 'Raleway';
+            font-size: 1rem;
+            line-height: 1.5rem;
+            margin: 0vw 14vw;
+
+
+
+
+        }
+
+
+        @media only screen and (min-width: 768px) and (max-width: 1160px) {
+
+            .splash-kontakt {
+                height: 100%;
+            }
+
+
+            .splash-kontakt .kontakt-content {
+                /*                max-width: 500px;*/
+                margin-top: 5vw;
+            }
+
+            .kontakt-content h1 {
+                font-family: 'Viga', sans-serif;
+                font-size: 5vw;
+            }
+
+
+            .kontakt-content p {
+                font-family: 'Raleway';
+                font-size: 2rem;
+                line-height: 2rem;
+                margin: 0 13vw;
+
+            }
+
+        }
+
+
+
+        @media (min-width: 1160px) {
+
+            .splash-kontakt {
+                height: 100%;
+            }
+
+            .splash-kontakt .kontakt-content {
+                /*                max-width: 700px;*/
+            }
+
+            nav {
+                display: grid;
+                grid-template-columns: auto auto auto auto auto auto;
+                grid-gap: 1vw;
+                max-width: 910px;
+                margin: auto auto;
+
+            }
+
+            button {
+                font-size: 2vw;
+
+            }
+
+            .kontakt-content h1 {
+                font-family: 'Viga', sans-serif;
+                font-size: 5vw;
+            }
+
+            .kontakt-content p {
+                font-family: 'Raleway';
+                font-size: 2.5vw;
+                line-height: 2.5rem;
+                margin: 0 12vw;
+
+            }
+
+            .kontakt-footer {
+                margin-top: 0vw;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <header>
+        <div id="mobile-button">&#9776;</div>
+        <div id="mobile-nav" class="hidden">
+            <a href="index.html">Forside</a>
+            <a href="priser.html">Priser</a>
+            <a href="behandlinger.html">Behandlinger</a>
+            <a href="yoga.html">Yoga</a>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
+
+        <div id="navbar">
+            <a href="index.html" id="logo"><img src="img/logovektor-kopi.png" alt="logo"></a>
+
+            <div id="navbar-right">
+                <a class="active" href="#home">FORSIDE</a>
+                <a href="priser.html">PRISER</a>
+                <a href="yoga.html">YOGA</a>
+                <a href="behandlinger.html">BEHANDLINGER</a>
+                <a href="kontakt.html">KONTAKT</a>
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="splash-kontakt">
+        <img src="img/desktop/2toyogal%C3%A6rer.png" alt="splashmobile">
+        <div class="kontakt-content">
+            <h1>KONTAKT</h1>
+            <p>Her kan du finde du telefonnummer, email og finde vej til vores lokaler i København</p>
+
+        </div>
+    </div>
+    <main>
+        <section class="forside-container">
+            <div class="openinghours-text">
+                <h2 class="kontakttitel1"></h2>
+                <p class="kontakttekst1"></p>
+            </div>
+            <div class="openinghours-image"><img src="img/desktop/pigelyserod.png" alt="" class="kontaktbillede1"></div>
+
+
+            <div id="produkter-textforside" class="produkter-text">
+                <div class="aabningstiderforside">
+                    <h2 class="kontakttitel"></h2>
+                    <p class="kontakttekst"></p>
+                </div>
+                <br>
+                <a class="linkaabningstider" target="_blank" href="https://calendar.google.com/calendar/embed?src=raadglas%40gmail.com&ctz=Europe%2FCopenhagen&fbclid=IwAR3hvdZ2UNjCwKm9bHnrntKvYH1hgrkB2t1I1cxxTzRTx9Zp0ctpkBV6jwE">Se hele kalenderen her</a>
+
+            </div>
+            <div class="products-image"><img src="#" alt="" class="kontaktbillede2"> </div>
+
+            <div class="about-text">
+                <h2 class="kontakttitel2"></h2>
+                <p class="kontakttekst2"></p>
+            </div>
+            <div class="about-img googlemaps"><iframe src="https://maps.google.com/maps?q=drivkraft%20&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" style="border:0" allowfullscreen></iframe></div>
+        </section>
+
+
+
+    </main>
+    <footer>
+        <div class="footer-column">
+            <h3>BEDØM OS</h3>
+            <a href="https://search.google.com/local/writereview?placeid=ChIJW5WYLJxNUkYR4bawLoRZoFs" target="_blank"><img class="footerreview" src="img/starsgoogle.png" alt="Google reviews"></a>
+
+        </div>
+        <div class="footer-column">
+            <h3>KONTAKT OS</h3>
+            <div class="center">
+                <div class="address span">
+                    <a target="_blank" href="https://www.google.com/maps/place/Anders+Raad+Glas/@55.7536322,12.5833771,916m/data=!3m1!1e3!4m5!3m4!1s0x46524d9c2c98955b:0x5ba059842eb0b6e1!8m2!3d55.7535027!4d12.5852807"><img src="img/placeholder.svg" alt="footerplaceiocn"></a>
+                    <p>Bredgade 33A,<br>
+                        1260 København K<br>
+
+                </div>
+                <div class="contact span">
+                    <img src="img/contact.svg" alt="icon-contact">
+                    <p>admin@drivkraftkbh.dk<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h3>FØLG OS</h3>
+            <div class="footer-some">
+                <a href="https://www.facebook.com/drivkraftkbh/"><img src="img/Fb.png" alt="FBicon"></a>
+                <a href="https://www.instagram.com/drivkraftkbh/?hl=da"><img src="img/Insta.png" alt="InstaIcon"></a></div>
+
+        </div>
+
+        <div class="footer-last">
+            <p class="footer-text">Copyright 2019 - Drivkraft 2018 - CVR: 39 06 44 99 - Privatlivspolitik - Cookies</p>
+        </div>
+    </footer>
+
+
+    <script>
+
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
