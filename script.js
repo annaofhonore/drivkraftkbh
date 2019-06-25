@@ -37,35 +37,112 @@ function toggleMenu() {
 }
 
 
-//document.addEventListener("DOMContentLoaded", start);
+document.addEventListener("DOMContentLoaded", start);
+let splash;
+let services = [];
+let about;
+let team = [];
+let navn = "Olivia"
+function start(){
+    
+    
+    console.log(document.querySelector("source"));
+    
+   
 
-//function start(){
-//    console.log("start");
-//    async function getJson() {
-//        console.log("getJson")
-//let url="http://oliviahonore.dk/drivkraftkbh/wordpress/wp-json/wp/v2/service"
-//let jsonData = await fetch(url);
-//indhold = await jsonData.json();
-//        visServices(); 
-//    }
-//    
-//    getJson();
-//    
-//    
-//    function visServices() {
-//        console.log("services");
-//        console.log();
-//        let dest = document.querySelector(".produkter-container");
-//        let temp = document.querySelector("template");
-//        services.forEach(service => {
-//        
-//            
-//        
-//        dest.lastElementChild.addEventListener("click", () => {
-//                location.href = "services?titel=" + serivce.title.rendered
-//            });
-//    });    
-//    
-//    
-//}
-//}
+async function getJsonSplash() {
+      console.log("getJson")
+      let url="http://oliviahonore.dk/drivkraftkbh/wordpress/wp-json/wp/v2/forside"
+      let jsonData = await fetch(url);
+      splash = await jsonData.json();
+      visSplash(); 
+}
+
+ getJsonSplash();
+    
+     function visSplash() {
+        console.log(splash[0].splash_video.guid)
+        document.querySelector("video").src = splash[0].splash_video.guid;
+        document.querySelector(".splash-content h1").textContent = splash[0].splash_tekst;
+    }
+
+    async function getJson() {
+        console.log("getJson")
+let url="http://oliviahonore.dk/drivkraftkbh/wordpress/wp-json/wp/v2/service"
+let jsonData = await fetch(url);
+services = await jsonData.json();
+        visServices(); 
+    }
+    
+    getJson();
+    
+    
+    function visServices() {
+        console.log("services");
+        console.log();
+        let dest = document.querySelector(".services-container");
+        let temp = document.querySelector(".service-temp");
+        services.forEach(service => {
+            let klon = temp.cloneNode(!0).content;
+      klon.querySelector(".bg").style.backgroundImage = `url(${service.billede.guid})`;
+            klon.querySelector(".service h1").innerHTML = service.title.rendered;
+            dest.appendChild(klon);
+            
+            
+        dest.lastElementChild.addEventListener("click", () => {
+                location.href = "services?titel=" + serivce.title.rendered
+            });
+    });    
+}
+    
+    
+       async function getJsonAbout() {
+        console.log("getJson")
+let url="http://oliviahonore.dk/drivkraftkbh/wordpress/wp-json/wp/v2/forside"
+let jsonData = await fetch(url);
+about = await jsonData.json();
+        hvadErDrivkraf(); 
+    }
+    
+    getJsonAbout();
+    
+    
+    function hvadErDrivkraf() {
+        console.log(about);
+    document.querySelector(".tekst").innerHTML = about[0].hvad_er_drivkraft;
+        
+        
+}
+    
+    
+      async function getJsonTeam() {
+        console.log("getJson")
+let url="http://oliviahonore.dk/drivkraftkbh/wordpress/wp-json/wp/v2/team"
+let jsonData = await fetch(url);
+team = await jsonData.json();
+        visTeam(); 
+    }
+    
+    getJsonTeam();
+    
+    
+    function visTeam() {
+       let dest = document.querySelector(".team-container");
+        let temp = document.querySelector(".team");
+        team.forEach(member => {
+            let klon = temp.cloneNode(!0).content;
+      klon.querySelector(".img").style.backgroundImage = `url(${member.billede.guid})`;
+            klon.querySelector("h4").innerHTML = member.title.rendered;
+            klon.querySelector("p").innerHTML = member.beskrivelse;
+            dest.appendChild(klon);
+            
+            
+        dest.lastElementChild.addEventListener("click", () => {
+                location.href = "team.html?navn=" + member.title.rendered;
+            });
+    });    
+        
+        
+}
+    
+}
