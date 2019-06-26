@@ -9,7 +9,8 @@ function scrollFunction() {
     if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
         document.querySelector("#navbar").style.padding = "3px 10px";
         document.querySelector("#logo img").style.width = "75%";
-        document.querySelector("#navbar").style.backgroundColor = "rgba(255, 255, 255, 0.21)";
+        document.querySelector("#navbar").style.backgroundColor = "rgba(234, 234, 234, 0.91)";
+
         document.querySelector("#mobile-button").style.top = "1vw";
         document.querySelector("#mobile-nav").style.top = "3.4rem";
     } else {
@@ -43,24 +44,25 @@ let services = [];
 let about;
 let team = [];
 let navn = "Olivia"
-function start(){
-    
-    
+
+function start() {
+
+
     console.log(document.querySelector("source"));
-    
-   
 
-async function getJsonSplash() {
-      console.log("getJson")
-      let url="http://oliviahonore.dk/drivkraftkbh/wordpress/wp-json/wp/v2/forside"
-      let jsonData = await fetch(url);
-      splash = await jsonData.json();
-      visSplash(); 
-}
 
- getJsonSplash();
-    
-     function visSplash() {
+
+    async function getJsonSplash() {
+        console.log("getJson")
+        let url = "http://oliviahonore.dk/drivkraftkbh/wordpress/wp-json/wp/v2/forside"
+        let jsonData = await fetch(url);
+        splash = await jsonData.json();
+        visSplash();
+    }
+
+    getJsonSplash();
+
+    function visSplash() {
         console.log(splash[0].splash_video.guid)
         document.querySelector("video").src = splash[0].splash_video.guid;
         document.querySelector(".splash-content h1").textContent = splash[0].splash_tekst;
@@ -68,15 +70,15 @@ async function getJsonSplash() {
 
     async function getJson() {
         console.log("getJson")
-let url="http://oliviahonore.dk/drivkraftkbh/wordpress/wp-json/wp/v2/service"
-let jsonData = await fetch(url);
-services = await jsonData.json();
-        visServices(); 
+        let url = "http://oliviahonore.dk/drivkraftkbh/wordpress/wp-json/wp/v2/service"
+        let jsonData = await fetch(url);
+        services = await jsonData.json();
+        visServices();
     }
-    
+
     getJson();
-    
-    
+
+
     function visServices() {
         console.log("services");
         console.log();
@@ -84,65 +86,65 @@ services = await jsonData.json();
         let temp = document.querySelector(".service-temp");
         services.forEach(service => {
             let klon = temp.cloneNode(!0).content;
-      klon.querySelector(".bg").style.backgroundImage = `url(${service.billede.guid})`;
+            klon.querySelector(".bg").style.backgroundImage = `url(${service.billede.guid})`;
             klon.querySelector(".service h1").innerHTML = service.title.rendered;
             dest.appendChild(klon);
-            
-            
-        dest.lastElementChild.addEventListener("click", () => {
+
+
+            dest.lastElementChild.addEventListener("click", () => {
                 location.href = "services?titel=" + serivce.title.rendered
             });
-    });    
-}
-    
-    
-       async function getJsonAbout() {
-        console.log("getJson")
-let url="http://oliviahonore.dk/drivkraftkbh/wordpress/wp-json/wp/v2/forside"
-let jsonData = await fetch(url);
-about = await jsonData.json();
-        hvadErDrivkraf(); 
+        });
     }
-    
+
+
+    async function getJsonAbout() {
+        console.log("getJson")
+        let url = "http://oliviahonore.dk/drivkraftkbh/wordpress/wp-json/wp/v2/forside"
+        let jsonData = await fetch(url);
+        about = await jsonData.json();
+        hvadErDrivkraf();
+    }
+
     getJsonAbout();
-    
-    
+
+
     function hvadErDrivkraf() {
         console.log(about);
-    document.querySelector(".tekst").innerHTML = about[0].hvad_er_drivkraft;
-        
-        
-}
-    
-    
-      async function getJsonTeam() {
-        console.log("getJson")
-let url="http://oliviahonore.dk/drivkraftkbh/wordpress/wp-json/wp/v2/team"
-let jsonData = await fetch(url);
-team = await jsonData.json();
-        visTeam(); 
+        document.querySelector(".tekst").innerHTML = about[0].hvad_er_drivkraft;
+
+
     }
-    
+
+
+    async function getJsonTeam() {
+        console.log("getJson")
+        let url = "http://oliviahonore.dk/drivkraftkbh/wordpress/wp-json/wp/v2/team"
+        let jsonData = await fetch(url);
+        team = await jsonData.json();
+        visTeam();
+    }
+
     getJsonTeam();
-    
-    
+
+
     function visTeam() {
-       let dest = document.querySelector(".team-container");
+        let dest = document.querySelector(".team-container");
         let temp = document.querySelector(".team");
         team.forEach(member => {
             let klon = temp.cloneNode(!0).content;
-      klon.querySelector(".img").style.backgroundImage = `url(${member.billede.guid})`;
+            klon.querySelector(".img").style.backgroundImage = `url(${member.billede.guid})`;
             klon.querySelector("h4").innerHTML = member.title.rendered;
             klon.querySelector("p").innerHTML = member.beskrivelse;
             dest.appendChild(klon);
-            
-            
-        dest.lastElementChild.addEventListener("click", () => {
+
+
+            dest.lastElementChild.addEventListener("click", () => {
                 location.href = "team.html?navn=" + member.title.rendered;
             });
-    });    
-        
-        
-}
-    
+        });
+
+
+    }
+
 }
